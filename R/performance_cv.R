@@ -189,7 +189,7 @@ performance_cv <- function(y,
                            colour=feature,
                            linetype = method)) +
     theme_classic() +
-    scale_colour_brewer(palette = "SPECtral") +
+    scale_colour_brewer(palette = "Dark2") +
     labs(title = paste0("ROC Curve with ",k, " Folds Cross Validation"),
          x = "False Positive Rate",
          y = "True Positive Rate")

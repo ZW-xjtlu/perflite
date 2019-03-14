@@ -14,5 +14,5 @@ svm_f <- function(y, X_train, X_test,...){
   svm_dec_val <- attributes(predict(object = svm_model,
                                     newdata = X_test,
                                     decision.values = TRUE))$decision.values
-  return(as.vector(svm_dec_val))
+  return(-1*as.vector(svm_dec_val))
 }
