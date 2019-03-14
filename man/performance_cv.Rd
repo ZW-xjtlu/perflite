@@ -5,8 +5,8 @@
 \title{A function to generate the performance evaluation metrices based on cross validation results.}
 \usage{
 performance_cv(y, X, cv_f = list(svm = svm_f, randomForest = randomForest_f),
-  boundaries = c(0, 0.5), performance_metrices = c("AUROC", "ACC", "ERR",
-  "SENS", "SPEC", "MCC"), k = 10, p = 1, plot_AUC = T, save_table = T,
+  boundary = 0.5, performance_metrices = c("AUROC", "ACC", "ERR", "SENS",
+  "SPEC", "MCC"), k = 10, p = 1, plot_AUC = T, save_table = T,
   save_plot_data = F, ...)
 }
 \arguments{
@@ -23,8 +23,8 @@ However, it is still recommended to create your own function with tunned paramet
 
 This argument could be a \code{list} of functions, Default to be list(svm_f, randomForest_f).}
 
-\item{boundaries}{The decision boundaries used when quantify performance metrices with fixed alpha, should be a numeric vector with its length equal to \code{cv_f}.
-Default: c(0,0.5), SVM is 0, and Random forest is .5.}
+\item{boundary}{The decision boundary used when quantify performance metrices with fixed alpha, should be a numeric value.
+Default: 0.5.}
 
 \item{k}{the number of folds used in cross validation, default 10.}
 

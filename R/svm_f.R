@@ -10,15 +10,14 @@
 #' @importFrom e1071 svm
 #' @export
 svm_f <- function(y, X_train, X_test, ...) {
-  svm_model <- svm(y = y, x = X_train, ...)
-  svm_dec_val <-  attributes(predict(
+  svm_model <- svm(y = y, x = X_train, probability = T, ...)
+
+  svm_dec_prob <-  attributes(predict(
     object = svm_model,
     newdata = X_test,
-    decision.values = TRUE
-  ))$decision.values
-  if (colnames(svm_dec_val) == "1/0") {
-    return(as.vector(svm_dec_val))
-  } else{
-    return(-1 * as.vector(svm_dec_val))
-  }
+    probability = TRUE
+  ))$probabilities
+
+  return(as.vector(svm_dec_prob[,"1"]))
+
 }

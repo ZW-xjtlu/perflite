@@ -16,8 +16,8 @@
 #'
 #' This argument could be a \code{list} of functions, Default to be list(svm_f, randomForest_f).
 #'
-#' @param boundaries The decision boundaries used when quantify performance metrices with fixed alpha, should be a numeric vector with its length equal to \code{cv_f}.
-#' Default: c(0,0.5), SVM is 0, and Random forest is .5.
+#' @param boundary The decision boundary used when quantify performance metrices with fixed alpha, should be a numeric value.
+#' Default: 0.5.
 #'
 #' @param performance_matrices a character vector indicating the performance metrices returned, default is \code{c("AUROC","ACC","ERR","SENS","SPEC","MCC")},
 #'
@@ -49,7 +49,7 @@ performance_cv <- function(y,
                        X,
                        cv_f = list("svm" = svm_f,
                                    "randomForest" = randomForest_f),
-                       boundaries = c(0,0.5),
+                       boundary = 0.5,
                        performance_metrices = c("AUROC","ACC","ERR","SENS","SPEC","MCC"),
                        k = 10,
                        p = 1,
@@ -61,8 +61,7 @@ performance_cv <- function(y,
   stopifnot(p >= 1)
   stopifnot(k >= 1)
   stopifnot(all(performance_metrices %in% c("AUROC","ACC","ERR","SENS","SPEC","MCC")))
-  stopifnot(length(boundaries) == length(cv_f))
-  stopifnot(is.numeric(boundaries))
+  stopifnot(is.numeric(boundary))
 
   #Convert the non list input into the list input.
   if(is.data.frame(X)|(!is.list(X))){
@@ -116,7 +115,6 @@ performance_cv <- function(y,
     perf_table_i <- matrix(NA, nrow = length(X), ncol = length(performance_metrices))
     colnames(perf_table_i) <- performance_metrices
     rownames(perf_table_i) <- names(X)
-    bond_i <- boundaries[which(names(cv_f)==i)]
 
     for (j in seq_along(X)){
       print(paste0("Using data pairs: ", names(X)[j], " and ", names(y)[j], "."))
@@ -142,8 +140,8 @@ performance_cv <- function(y,
         perf_table_i[names(X)[j],"AUROC"] <- round( performance( pred, "auc" )@y.values[[1]], 4)
         }
 
-        ##Calculating performance metrices with selected decision boundaries
-        pred <- prediction(as.numeric(cv_value_j > bond_i), y[[j]])
+        ##Calculating performance metrices with selected decision boundary
+        pred <- prediction(as.numeric(cv_value_j > boundary), y[[j]])
 
         if("ACC" %in% performance_metrices){
         perf_table_i[names(X)[j],"ACC"]  <- round( performance( pred, "acc" )@y.values[[1]][2], 4)
