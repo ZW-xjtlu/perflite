@@ -154,7 +154,7 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence\_feature
+sequence_feature
 </td>
 <td style="text-align:right;">
 0.6555
@@ -177,7 +177,7 @@ sequence\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic\_feature
+genomic_feature
 </td>
 <td style="text-align:right;">
 0.6660
@@ -200,7 +200,7 @@ genomic\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-combined\_feature
+combined_feature
 </td>
 <td style="text-align:right;">
 0.7363
@@ -260,7 +260,7 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence\_feature
+sequence_feature
 </td>
 <td style="text-align:right;">
 0.6734
@@ -283,7 +283,7 @@ sequence\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic\_feature
+genomic_feature
 </td>
 <td style="text-align:right;">
 0.6787
@@ -306,7 +306,7 @@ genomic\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-combined\_feature
+combined_feature
 </td>
 <td style="text-align:right;">
 0.7379
@@ -329,10 +329,13 @@ combined\_feature
 </tr>
 </tbody>
 </table>
+
+
 A plot of ROC curve is automatically saved under the current directory.
 -----------------------------------------------------------------------
 
-<img src="ROC_cv.pdf" alt="The whole analysis requires only one function." width="100%" />
+<img src="./ROC_cv.pdf" alt="The whole analysis requires only one function." width="100%" />
+
 <p class="caption">
 The whole analysis requires only one function.
 </p>
