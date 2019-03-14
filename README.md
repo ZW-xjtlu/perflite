@@ -332,7 +332,7 @@ combined\_feature
 A plot of ROC curve is automatically saved under the current directory.
 -----------------------------------------------------------------------
 
-<img src="ROC_cv.pdf" alt="The whole analysis requires only one function." width="100%" />
+<img src="README_files/figure-markdown_github/ROC_cv.pdf" alt="The whole analysis requires only one function." width="100%" />
 <p class="caption">
 The whole analysis requires only one function.
 </p>
