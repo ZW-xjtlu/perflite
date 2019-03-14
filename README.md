@@ -154,7 +154,7 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence\_feature
+sequence_feature
 </td>
 <td style="text-align:right;">
 0.6555
@@ -177,7 +177,7 @@ sequence\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic\_feature
+genomic_feature
 </td>
 <td style="text-align:right;">
 0.6660
@@ -200,7 +200,7 @@ genomic\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-combined\_feature
+combined_feature
 </td>
 <td style="text-align:right;">
 0.7363
@@ -223,6 +223,8 @@ combined\_feature
 </tr>
 </tbody>
 </table>
+
+
 ``` r
 kable(perf_results[[2]],
        format = "html", 
@@ -260,7 +262,7 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence\_feature
+sequence_feature
 </td>
 <td style="text-align:right;">
 0.6734
@@ -283,7 +285,7 @@ sequence\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic\_feature
+genomic_feature
 </td>
 <td style="text-align:right;">
 0.6787
@@ -306,7 +308,7 @@ genomic\_feature
 </tr>
 <tr>
 <td style="text-align:left;">
-combined\_feature
+combined_feature
 </td>
 <td style="text-align:right;">
 0.7379
@@ -329,10 +331,17 @@ combined\_feature
 </tr>
 </tbody>
 </table>
+
+
 A plot of ROC curve is automatically saved under the current directory.
 -----------------------------------------------------------------------
 
+<<<<<<< HEAD
 <img src="README_files/figure-markdown_github/ROC_cv.pdf" alt="The whole analysis requires only one function." width="100%" />
+=======
+<img src="ROC_cv.pdf" style="display: block; margin: auto;" />
+
+>>>>>>> 57f40cc5f6395b8ea64df9d96dcc495a3854edbc
 <p class="caption">
 The whole analysis requires only one function.
 </p>
