@@ -24,10 +24,29 @@ devtools::install_github("ZhenWei10/perflite")
 
 ## Run a performance evaluation with the example files in package
 
+Below is an one step function to evaluate the performance of machine learning algorithm on multiple datasets.
+
 ```{r,cache=TRUE,warning=FALSE}
 library(perflite)
-perf_results <- performance_cv(example_y,example_X)
+perf_results <- performance_cv(
+                         y = list(
+                         sequence = Response_sequence,
+                         genomic = Response_genomic,
+                         combined = Response_combinded
+                        ), #list of response vectors
+                    X = list(
+                         sequence = Feature_sequence,
+                         genomic = Feature_genomic,
+                         combined = Feature_combinded
+                        ), #list of feature matrixes
+                    k = 10, #number of folds in cross validation
+                    p = 1, #number of parallel computation
+                    cv_f = c(svm = svm_f,
+           randomForest = randomForest_f)  #list of classifier functions.
+  )
 ```
+
+After running this function, the tables generated will be automatically saved under the current working directory.
 
 ##Check the performance tables.
 ```{r,warning=FALSE}
@@ -46,7 +65,7 @@ kable(perf_results[[2]],
 ##A plot of ROC curve is automatically saved under the current directory.
 
 ```{r pressure, echo=FALSE, fig.cap="The whole analysis requires only one function.", out.width = '100%'}
-knitr::include_graphics("/Users/zhenwei/Documents/GitHub/perflite/ROC_cv.pdf")
+knitr::include_graphics("ROC_cv.pdf")
 ```
 
 ```{r}

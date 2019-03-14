@@ -18,10 +18,13 @@ Feature_sequence <- Feature_sequence[,apply(Feature_sequence,2,var) != 0]
 
 performance_cv(y = list(sequence = Response_sequence,
                         genomic = Response_genomic,
-                        combined = Response_combinded),
+                        combined = Response_combinded), #list of response vectors
                X = list(sequence = Feature_sequence,
                         genomic = Feature_genomic,
-                        combined = Feature_combinded),
-               cv_f = list(svm = svm_f),
-               boundaries = c(0)
-               )
+                        combined = Feature_combinded), #list of feature matrixes
+              k = 10, #10 folds cross validation
+              p = 1, #number of parallel computation used
+              cv_f = c(svm_f,
+                       randomForest_f)  #list of functions of classifiers
+)
+
