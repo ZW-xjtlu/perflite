@@ -30,14 +30,14 @@ Below is an one step function to evaluate the performance of machine learning al
 library(perflite)
 perf_results <- performance_cv(
                          y = list(
-                         sequence = Response_sequence,
-                         genomic = Response_genomic,
-                         combined = Response_combinded
+                         target_1 = Response_sequence,
+                         target_2 = Response_genomic,
+                         target_3 = Response_combinded
                         ), #list of response vectors
                     X = list(
-                         sequence = Feature_sequence,
-                         genomic = Feature_genomic,
-                         combined = Feature_combinded
+                         sequence_feature = Feature_sequence,
+                         genomic_feature = Feature_genomic,
+                         combined_feature = Feature_combinded
                         ), #list of feature matrixes
                     k = 10, #number of folds in cross validation
                     p = 1, #number of parallel computation
@@ -49,12 +49,14 @@ perf_results <- performance_cv(
 After running this function, the tables generated will be automatically saved under the current working directory.
 
 ##Check the performance tables.
+
 ```{r,warning=FALSE}
 library(knitr)
 kable(perf_results[[1]],
        format = "html", 
        caption = names(perf_results)[1]) 
 ```
+
 
 ```{r}
 kable(perf_results[[2]],

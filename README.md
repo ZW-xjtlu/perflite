@@ -26,24 +26,24 @@ Below is an one step function to evaluate the performance of machine learning al
 library(perflite)
 perf_results <- performance_cv(
                          y = list(
-                         sequence = Response_sequence,
-                         genomic = Response_genomic,
-                         combined = Response_combinded
+                         target_1 = Response_sequence,
+                         target_2 = Response_genomic,
+                         target_3 = Response_combinded
                         ), #list of response vectors
                     X = list(
-                         sequence = Feature_sequence,
-                         genomic = Feature_genomic,
-                         combined = Feature_combinded
+                         sequence_feature = Feature_sequence,
+                         genomic_feature = Feature_genomic,
+                         combined_feature = Feature_combinded
                         ), #list of feature matrixes
                     k = 10, #number of folds in cross validation
                     p = 1, #number of parallel computation
-                    cv_f = c(svm_f,
-           randomForest_f)  #list of classifier functions.
+                    cv_f = c(svm = svm_f,
+           randomForest = randomForest_f)  #list of classifier functions.
   )
 ```
 
-    ## [1] "Start to test on learning method: method_1"
-    ## [1] "Using data pairs: sequence and sequence."
+    ## [1] "Start to test on learning method: svm"
+    ## [1] "Using data pairs: sequence_feature and target_1."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -54,7 +54,7 @@ perf_results <- performance_cv(
     ## [1] "Fold 8 training..."
     ## [1] "Fold 9 training..."
     ## [1] "Fold 10 training..."
-    ## [1] "Using data pairs: genomic and genomic."
+    ## [1] "Using data pairs: genomic_feature and target_2."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -65,7 +65,7 @@ perf_results <- performance_cv(
     ## [1] "Fold 8 training..."
     ## [1] "Fold 9 training..."
     ## [1] "Fold 10 training..."
-    ## [1] "Using data pairs: combined and combined."
+    ## [1] "Using data pairs: combined_feature and target_3."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -76,8 +76,8 @@ perf_results <- performance_cv(
     ## [1] "Fold 8 training..."
     ## [1] "Fold 9 training..."
     ## [1] "Fold 10 training..."
-    ## [1] "Start to test on learning method: method_2"
-    ## [1] "Using data pairs: sequence and sequence."
+    ## [1] "Start to test on learning method: randomForest"
+    ## [1] "Using data pairs: sequence_feature and target_1."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -88,7 +88,7 @@ perf_results <- performance_cv(
     ## [1] "Fold 8 training..."
     ## [1] "Fold 9 training..."
     ## [1] "Fold 10 training..."
-    ## [1] "Using data pairs: genomic and genomic."
+    ## [1] "Using data pairs: genomic_feature and target_2."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -99,7 +99,7 @@ perf_results <- performance_cv(
     ## [1] "Fold 8 training..."
     ## [1] "Fold 9 training..."
     ## [1] "Fold 10 training..."
-    ## [1] "Using data pairs: combined and combined."
+    ## [1] "Using data pairs: combined_feature and target_3."
     ## [1] "Fold 1 training..."
     ## [1] "Fold 2 training..."
     ## [1] "Fold 3 training..."
@@ -125,7 +125,7 @@ kable(perf_results[[1]],
 
 <table>
 <caption>
-method\_1
+svm
 </caption>
 <thead>
 <tr>
@@ -154,71 +154,71 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence
+sequence\_feature
 </td>
 <td style="text-align:right;">
-0.6360
+0.6555
 </td>
 <td style="text-align:right;">
-0.602
+0.630
 </td>
 <td style="text-align:right;">
-0.398
+0.370
 </td>
 <td style="text-align:right;">
-0.5633
+0.5959
 </td>
 <td style="text-align:right;">
-0.6392
+0.6627
 </td>
 <td style="text-align:right;">
-0.2031
+0.2593
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic
+genomic\_feature
 </td>
 <td style="text-align:right;">
-0.6646
+0.6660
 </td>
 <td style="text-align:right;">
-0.600
+0.604
 </td>
 <td style="text-align:right;">
-0.400
+0.396
 </td>
 <td style="text-align:right;">
-0.5796
+0.5714
 </td>
 <td style="text-align:right;">
-0.6196
+0.6353
 </td>
 <td style="text-align:right;">
-0.1994
+0.2072
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-combined
+combined\_feature
 </td>
 <td style="text-align:right;">
-0.7146
+0.7363
 </td>
 <td style="text-align:right;">
-0.662
+0.678
 </td>
 <td style="text-align:right;">
-0.338
+0.322
 </td>
 <td style="text-align:right;">
 0.6490
 </td>
 <td style="text-align:right;">
-0.6745
+0.7059
 </td>
 <td style="text-align:right;">
-0.3236
+0.3555
 </td>
 </tr>
 </tbody>
@@ -231,7 +231,7 @@ kable(perf_results[[2]],
 
 <table>
 <caption>
-method\_2
+randomForest
 </caption>
 <thead>
 <tr>
@@ -260,71 +260,71 @@ MCC
 <tbody>
 <tr>
 <td style="text-align:left;">
-sequence
+sequence\_feature
 </td>
 <td style="text-align:right;">
-0.6836
+0.6734
 </td>
 <td style="text-align:right;">
-0.630
+0.640
 </td>
 <td style="text-align:right;">
-0.370
+0.360
 </td>
 <td style="text-align:right;">
-0.5755
+0.5837
 </td>
 <td style="text-align:right;">
-0.6824
+0.6941
 </td>
 <td style="text-align:right;">
-0.2594
+0.2796
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genomic
+genomic\_feature
 </td>
 <td style="text-align:right;">
-0.6901
+0.6787
 </td>
 <td style="text-align:right;">
-0.662
+0.634
 </td>
 <td style="text-align:right;">
-0.338
+0.366
 </td>
 <td style="text-align:right;">
-0.6449
+0.6163
 </td>
 <td style="text-align:right;">
-0.6784
+0.6510
 </td>
 <td style="text-align:right;">
-0.3235
+0.2675
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-combined
+combined\_feature
 </td>
 <td style="text-align:right;">
-0.7365
+0.7379
 </td>
 <td style="text-align:right;">
-0.698
+0.686
 </td>
 <td style="text-align:right;">
-0.302
+0.314
 </td>
 <td style="text-align:right;">
-0.6571
+0.6327
 </td>
 <td style="text-align:right;">
 0.7373
 </td>
 <td style="text-align:right;">
-0.3959
+0.3722
 </td>
 </tr>
 </tbody>
