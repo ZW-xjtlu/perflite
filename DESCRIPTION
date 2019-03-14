@@ -1,0 +1,12 @@
+Package: perflite
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 1.0.0
+Author: Who wrote it
+Maintainer: The package maintainer <zhen.wei@xjtlu.edu.cn>
+Description: One step performance evaluation with parallel computing
+Imports: e1071,ROCR,caret,ggplot2,BiocParallel,randomForest
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1

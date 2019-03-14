@@ -1,0 +1,56 @@
+---
+title: "Performance Evaluation All at Once"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## You are welcome to use my new package perflite
+
+It is a one step, easy to use package to evaluate any performances of machine learning algorithm.
+
+Notice that the first version of this package is develped using **6 hours of one day**.
+And it could already realize the one step automatic performance evaluation on multiple datasets and multiple machine learning methods (with cross validation + parallel computation).
+
+## Install this package on your PC or server
+
+You can download this package right now from github:
+
+```{r , eval=FALSE}
+devtools::install_github("ZhenWei10/perflite")
+```
+
+## Run a performance evaluation with the example files in package
+
+```{r,cache=TRUE,warning=FALSE}
+library(perflite)
+perf_results <- performance_cv(example_y,example_X)
+```
+
+##Check the performance tables.
+```{r,warning=FALSE}
+library(knitr)
+kable(perf_results[[1]],
+       format = "html", 
+       caption = names(perf_results)[1]) 
+```
+
+```{r}
+kable(perf_results[[2]],
+       format = "html", 
+       caption = names(perf_results)[2]) 
+```
+
+##A plot of ROC curve is automatically saved under the current directory.
+
+```{r pressure, echo=FALSE, fig.cap="The whole analysis requires only one function.", out.width = '100%'}
+knitr::include_graphics("/Users/zhenwei/Documents/GitHub/perflite/ROC_cv.pdf")
+```
+
+```{r}
+sessionInfo()
+```
+
+
