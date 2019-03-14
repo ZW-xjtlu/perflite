@@ -1,0 +1,4 @@
+"AUROC"	"ACC"	"ERR"	"SENS"	"SPEC"	"MCC"
+"sequence_feature"	0.6874	0.652	0.348	0.5959	0.7059	0.3038
+"genomic_feature"	0.6967	0.644	0.356	0.6286	0.6588	0.2875
+"combined_feature"	0.738	0.706	0.294	0.6449	0.7647	0.4129

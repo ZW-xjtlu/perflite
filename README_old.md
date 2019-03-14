@@ -6,7 +6,7 @@ You are welcome to use my new package perflite
 
 It is a one step, easy to use package to evaluate any performances of machine learning algorithm.
 
-Notice that the first version of this package is develped using **6 hours of one day**. And it could already realize the one step automatic performance evaluation on multiple datasets and multiple machine learning methods (with cross validation + parallel computation).
+The first version of this package is develped in one day, but it could already realize the one step automatic performance evaluation on multiple datasets and multiple machine learning methods (with cross validation + parallel computation).
 
 Install this package on your PC or server
 -----------------------------------------
@@ -157,22 +157,22 @@ MCC
 sequence_feature
 </td>
 <td style="text-align:right;">
-0.6339
+0.6555
 </td>
 <td style="text-align:right;">
-0.610
+0.630
 </td>
 <td style="text-align:right;">
-0.390
+0.370
 </td>
 <td style="text-align:right;">
-0.5469
+0.5959
 </td>
 <td style="text-align:right;">
-0.6706
+0.6627
 </td>
 <td style="text-align:right;">
-0.2193
+0.2593
 </td>
 </tr>
 <tr>
@@ -180,22 +180,22 @@ sequence_feature
 genomic_feature
 </td>
 <td style="text-align:right;">
-0.6655
+0.6660
 </td>
 <td style="text-align:right;">
-0.606
+0.604
 </td>
 <td style="text-align:right;">
-0.394
+0.396
 </td>
 <td style="text-align:right;">
-0.5755
+0.5714
 </td>
 <td style="text-align:right;">
 0.6353
 </td>
 <td style="text-align:right;">
-0.2112
+0.2072
 </td>
 </tr>
 <tr>
@@ -203,22 +203,22 @@ genomic_feature
 combined_feature
 </td>
 <td style="text-align:right;">
-0.7314
+0.7363
 </td>
 <td style="text-align:right;">
-0.688
+0.678
 </td>
 <td style="text-align:right;">
-0.312
+0.322
 </td>
 <td style="text-align:right;">
-0.6816
+0.6490
 </td>
 <td style="text-align:right;">
-0.6941
+0.7059
 </td>
 <td style="text-align:right;">
-0.3758
+0.3555
 </td>
 </tr>
 </tbody>
@@ -230,7 +230,6 @@ kable(perf_results[[2]],
        format = "html", 
        caption = names(perf_results)[2]) 
 ```
-
 
 <table>
 <caption>
@@ -266,22 +265,22 @@ MCC
 sequence_feature
 </td>
 <td style="text-align:right;">
-0.6874
+0.6734
 </td>
 <td style="text-align:right;">
-0.652
+0.640
 </td>
 <td style="text-align:right;">
-0.348
+0.360
 </td>
 <td style="text-align:right;">
-0.5959
+0.5837
 </td>
 <td style="text-align:right;">
-0.7059
+0.6941
 </td>
 <td style="text-align:right;">
-0.3038
+0.2796
 </td>
 </tr>
 <tr>
@@ -289,22 +288,22 @@ sequence_feature
 genomic_feature
 </td>
 <td style="text-align:right;">
-0.6967
+0.6787
 </td>
 <td style="text-align:right;">
-0.644
+0.634
 </td>
 <td style="text-align:right;">
-0.356
+0.366
 </td>
 <td style="text-align:right;">
-0.6286
+0.6163
 </td>
 <td style="text-align:right;">
-0.6588
+0.6510
 </td>
 <td style="text-align:right;">
-0.2875
+0.2675
 </td>
 </tr>
 <tr>
@@ -312,26 +311,27 @@ genomic_feature
 combined_feature
 </td>
 <td style="text-align:right;">
-0.7380
+0.7379
 </td>
 <td style="text-align:right;">
-0.706
+0.686
 </td>
 <td style="text-align:right;">
-0.294
+0.314
 </td>
 <td style="text-align:right;">
-0.6449
+0.6327
 </td>
 <td style="text-align:right;">
-0.7647
+0.7373
 </td>
 <td style="text-align:right;">
-0.4129
+0.3722
 </td>
 </tr>
 </tbody>
 </table>
+
 
 A plot of ROC curve is automatically saved under the current directory.
 -----------------------------------------------------------------------
