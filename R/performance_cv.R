@@ -1,6 +1,6 @@
 #' @title A function to generate the performance evaluation metrices based on cross validation results.
 #' @return a \code{data.frame} that contains comprehensive performance report after cross validation.
-#' @details \code{performance} conduct performance evaluation on a machine learning binary classifier using cross validation.
+#' @details \code{performance_class} conduct performance evaluation on a machine learning binary classifier using cross validation.
 #' This is a convenient function to get a neat and efficient result of performance evaluation after cross validation.
 #'
 #' The missing values will not be imputed by default, and the dimensions containing missing values will be dropped.
@@ -11,10 +11,10 @@
 #'
 #' For example, the returned values can be the votes proportions for random forest, and it can also be the decision values for SVM.
 #'
-#' This package contains buildin predictor functions for you to use, such as: \code{\link{svm_f}} and \code{\link{randomForest_f}}
+#' This package contains buildin predictor functions for you to use, such as: \code{\link{svm_class}} and \code{\link{randomForest_class}}
 #' However, it is still recommended to create your own function with tunned parameters.
 #'
-#' This argument could be a \code{list} of functions, Default to be list(svm_f, randomForest_f).
+#' This argument could be a \code{list} of functions, Default to be list(svm_class, randomForest_class).
 #'
 #' @param boundary The decision boundary used when quantify performance metrices with fixed alpha, should be a numeric value.
 #' Default: 0.5.
@@ -45,18 +45,19 @@
 #' @importFrom ROCR prediction performance
 #' @import ggplot2
 #' @export
-performance_cv <- function(y,
-                       X,
-                       cv_f = list("svm" = svm_f,
-                                   "randomForest" = randomForest_f),
-                       boundary = 0.5,
-                       performance_metrices = c("AUROC","ACC","ERR","SENS","SPEC","MCC"),
-                       k = 10,
-                       p = 1,
-                       plot_AUC = T,
-                       save_table = T,
-                       save_plot_data = F,
-                       ...) {
+performance_class <- function(y,
+                              X,
+                              cv_f = list("svm" = svm_f,
+                                          "randomForest" = randomForest_f),
+                              boundary = 0.5,
+                              performance_metrices = c("AUROC", "ACC", "ERR", "SENS", "SPEC", "MCC"),
+                              k = 10,
+                              p = 1,
+                              plot_AUC = T,
+                              save_table = T,
+                              save_plot_data = F,
+                              ...) {
+
   #Checking potential conditions for failure.
   stopifnot(p >= 1)
   stopifnot(k >= 1)

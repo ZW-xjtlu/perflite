@@ -2,30 +2,33 @@
 % Please edit documentation in R/predict_cv.R
 \name{predict_cv}
 \alias{predict_cv}
-\title{A function to generate the cross validated decision values.}
+\title{A function to generate the cross validated prediction/decision values.}
 \usage{
-predict_cv(y, X, cv_f = svm_f, k = 10, p = 1, ...)
+predict_cv(y, X, pred_f = svm_class, k = 10, p = 1, ...)
 }
 \arguments{
-\item{y}{a \code{factor} that contains the binary response variable with levels 1,0 for binary classification.}
+\item{y}{an object that contains the binary response factor with levels 1,0 for binary classification, or a numeric vector for the prediction problem.}
 
 \item{X}{a \code{matrix} that contains the features, nrow(X) = length(y).}
 
-\item{cv_f}{a function that gets the input argument named y , X_train, and X_test, and output is the real numbered decision values for X_test.
+\item{pred_f}{a function that gets the input argument named y , X_train, and X_test, and output is the real numbered decision values for X_test.
 
 For example, the returned values can be the votes proportions for random forest, and it can also be the decision values for SVM.
 
-This package contains buildin predictor functions for you to use, such as: \code{\link{svm_f}} and \code{\link{randomForest_f}}
+This package contains buildin predictor functions for you to use, such as: \code{\link{svm_class}} and \code{\link{randomForest_class}}
 However, it is still recommended to create your own function with tunned parameters.}
 
 \item{k}{the number of folds used in cross validation, default 10.}
 
 \item{p}{the number of parallels used, default equals 1, recommend to use p = k on server.}
 
-\item{...}{additional arguments passed to \code{cv_f}}
+\item{...}{additional arguments passed to \code{pred_f}}
 }
 \value{
 a \code{vector} that is the same length of y containing the real value decision values after cross validation.
+}
+\description{
+A function to generate the cross validated prediction/decision values.
 }
 \details{
 \code{predict_cv} conduct predictions of machine learning binary classifier with cross validation.

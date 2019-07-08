@@ -1,4 +1,4 @@
-#' @title A function to generate the svm decision values.
+#' @title A function to generate the decision values for random forest classification.
 #' @return a \code{vector} that containing the positive voting proportions of the random forest model for testing set.
 #' @details \code{svm_f} conduct binary classification using randomForest.
 #'
@@ -9,9 +9,9 @@
 #'
 #' @importFrom randomForest randomForest
 #' @export
-randomForest_f <- function(y,X_train,X_test,...){
-  rf_model <- randomForest(y=y,x=X_train,...)
-  rf_votes <- predict(object=rf_model,
+randomForest_class <- function(y,X_train,X_test,...){
+  rf_model <- randomForest( y = y, x = X_train,...)
+  rf_votes <- predict(object = rf_model,
                       newdata = X_test,
                       type = "prob")[,2]
   names(rf_votes) <- NULL

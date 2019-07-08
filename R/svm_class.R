@@ -1,4 +1,4 @@
-#' @title A function to generate the svm decision values.
+#' @title A function to generate the decision values for svm classification.
 #' @return a \code{vector} that is the same length of y containing the decision values on testing set.
 #' @details \code{svm_f} conduct binary classification using SVM.
 #'
@@ -9,7 +9,7 @@
 #'
 #' @importFrom e1071 svm
 #' @export
-svm_f <- function(y, X_train, X_test, ...) {
+svm_class <- function(y, X_train, X_test, ...) {
   svm_model <- svm(y = y, x = X_train, probability = T, ...)
 
   svm_dec_prob <-  attributes(predict(
