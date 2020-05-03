@@ -24,7 +24,7 @@ Below is an one step function to evaluate the performance of machine learning al
 
 ``` r
 library(perflite)
-perf_results <- performance_cv(
+perf_results <- performance_class(
                          y = list(
                          target_1 = Response_sequence,
                          target_2 = Response_genomic,
@@ -37,8 +37,8 @@ perf_results <- performance_cv(
                         ), #list of feature matrixes
                     k = 10, #number of folds in cross validation
                     p = 1, #number of parallel computation
-                    cv_f = c(svm = svm_f,
-           randomForest = randomForest_f)  #list of classifier functions.
+                    cv_f = c(svm = svm_class,
+           randomForest = randomForest_class)  #list of classifier functions.
   )
 ```
 
