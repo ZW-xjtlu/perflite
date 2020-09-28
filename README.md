@@ -6,7 +6,7 @@ You are welcome to use my new package perflite
 
 It is a one step, easy to use package to evaluate any performances of machine learning algorithm.
 
-Notice that the first version of this package is develped using **6 hours of one day**. And it could already realize the one step automatic performance evaluation on multiple datasets and multiple machine learning methods (with cross validation + parallel computation).
+The current version of it can realize the one step automatic performance evaluation on multiple datasets and multiple machine learning methods (with cross validation + parallel computation).
 
 Install this package on your PC or server
 -----------------------------------------
